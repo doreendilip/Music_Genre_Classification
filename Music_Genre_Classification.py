@@ -1,3 +1,13 @@
+# Mount at /content/drive
+
+from google.colab import drive
+drive.mount('/content/drive')
+
+import os
+Root = "/content/drive/My Drive/Colab Notebooks/Music_Genre_Classification"
+os.chdir(Root)
+
+
 # Importing necessary libraries
 
 import pandas as pd
@@ -11,9 +21,10 @@ import matplotlib.pyplot as plt
 
 # Providing filepath to access the music libraries
 
-path = '/content/drive/MyDrive/Colab_Notebook/Music_Genre_Classification/Data/genres_original'
-metadata = pd.read_csv('/content/drive/MyDrive/Colab_Notebook/Music_Genre_Classification/Data/features_30_sec.csv')
+path = '/content/drive/My Drive/Colab Notebooks/Music_Genre_Classification/Data/genres_original'
+metadata = pd.read_csv('/content/drive/My Drive/Colab Notebooks/Music_Genre_Classification/Data/features_30_sec.csv')
 metadata.head()
+
 
 # Here we convert signals to smaller frames. Then we try to discard the noise and the frequency kept is one with high probability of containing necessary information.
 
@@ -145,7 +156,7 @@ model.predict_classes(X_test)
 
 # Prediction
 
-filename="/content/drive/MyDrive/Colab_Notebook/Music_Genre_Classification/audio/blues.00000.wav"
+filename="/content/drive/My Drive/Colab Notebooks/Music_Genre_Classification/audio/blues.00000.wav"
 audio, sample_rate = librosa.load(filename, res_type='kaiser_fast') 
 feat = librosa.feature.mfcc(y=audio, sr=sample_rate, n_mfcc=40)
 feat_scaled = np.mean(feat.T,axis=0)
