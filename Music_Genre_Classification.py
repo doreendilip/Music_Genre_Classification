@@ -3,6 +3,8 @@
 from google.colab import drive
 drive.mount('/content/drive')
 
+# Importing and setting Root folder
+
 import os
 Root = "/content/drive/My Drive/Colab Notebooks/Music_Genre_Classification"
 os.chdir(Root)
